@@ -3,7 +3,11 @@ using System.Collections;
 
 public class MenuController : MonoBehaviour {
 
-	// Use this for initialization
+    //PauseMenu
+    [SerializeField]
+    private GameObject Pause;
+    
+    // Use this for initialization
 	void Start ()
     {
 	
@@ -57,9 +61,17 @@ public class MenuController : MonoBehaviour {
 
     }
 
-    //Loads the Instructions menu.
+    //Loads the Pause menu.
     public void PauseMenu()
     {
+            Pause.SetActive(true);
+            Time.timeScale = 0;
+    }
 
+    //Closes the Pause menu.
+    public void PauseClose()
+    {
+        Pause.SetActive(false);
+        Time.timeScale = 1;
     }
 }
