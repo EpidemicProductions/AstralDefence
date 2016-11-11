@@ -58,7 +58,7 @@ public class MenuController : MonoBehaviour {
     //Loads the Instructions menu.
     public void Tutorial()
     {
-
+        Application.LoadLevel("Tutorial");
     }
 
     //Loads the Pause menu.
