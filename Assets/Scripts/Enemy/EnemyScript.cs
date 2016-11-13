@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class EnemyScript : MonoBehaviour
 {
     //Movement
@@ -20,6 +21,11 @@ public class EnemyScript : MonoBehaviour
     private Transform spawnPoint;
     [SerializeField]
     private float destroyTime;
+
+    //Enemy Spawn
+    public GameObject enemy;                // The enemy prefab to be spawned.
+    public float spawnTime = 3f;            // How long between each spawn.
+    public Transform[] spawnPoints;
 
 
     // When the enemy collides with another object
@@ -42,6 +48,12 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        //Enemy Spawn
+        InvokeRepeating("Spawn", spawnTime, spawnTime);
+
+        //Movement
+        pathEnd = GameObject.FindWithTag("PathEnd");
     }
 
     // Update is called once per frame
@@ -49,6 +61,7 @@ public class EnemyScript : MonoBehaviour
     {
         EnemyMove();
         EnemyLife();
+        Spawn();
     }
 
     // Moves the object to the object that is set as the vairable of 'pathEnd'
@@ -73,5 +86,14 @@ public class EnemyScript : MonoBehaviour
     {
         Rigidbody ElectricityDrop;
         ElectricityDrop = Instantiate(coinPrefab, spawnPoint.position, spawnPoint.rotation) as Rigidbody;
+    }
+
+    //Determines the spawn time and location of enemies.
+    void Spawn()
+    {
+        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+        // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
 }
