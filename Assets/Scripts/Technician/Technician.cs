@@ -4,6 +4,7 @@ using System.Collections;
 public class Technician : MonoBehaviour
 {
     public GameObject technician;
+    public ParticleSystem tap;
     
 
 
@@ -26,8 +27,22 @@ public class Technician : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                targetPosition = hit.point + Vector3.up * 0.5f;
+                if (hit.collider.GetComponent<Turret>() ||
+                    hit.collider.GetComponent<Technician>() ||
+                    hit.collider.CompareTag("Prop"))
+                {
+                    return;
+                }
+                else
+                {
 
+                    targetPosition = hit.point + Vector3.up * 0.5f;
+
+                    Instantiate(tap, hit.point, Quaternion.Euler(90, 0, 0));
+                    tap.Play();
+                    Debug.Log(hit.collider.name);
+                }
+                
             }
         }
         technician.transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);

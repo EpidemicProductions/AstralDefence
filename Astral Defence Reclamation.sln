@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astral Defence Reclamation.CSharp.Plugins", "Astral Defence Reclamation.CSharp.Plugins.csproj", "{21DE310E-28F9-18E6-CDEF-0F6E70CB2C28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astral Defence Reclamation.CSharp", "Astral Defence Reclamation.CSharp.csproj", "{E8FF5878-10C1-12B1-3A1E-BFF91A118176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astral Defence Reclamation.CSharp.Editor", "Astral Defence Reclamation.CSharp.Editor.csproj", "{D1E5B53C-B06E-6977-D1B2-44DDDD07D630}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21DE310E-28F9-18E6-CDEF-0F6E70CB2C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21DE310E-28F9-18E6-CDEF-0F6E70CB2C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21DE310E-28F9-18E6-CDEF-0F6E70CB2C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21DE310E-28F9-18E6-CDEF-0F6E70CB2C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8FF5878-10C1-12B1-3A1E-BFF91A118176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FF5878-10C1-12B1-3A1E-BFF91A118176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FF5878-10C1-12B1-3A1E-BFF91A118176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FF5878-10C1-12B1-3A1E-BFF91A118176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1E5B53C-B06E-6977-D1B2-44DDDD07D630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E5B53C-B06E-6977-D1B2-44DDDD07D630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E5B53C-B06E-6977-D1B2-44DDDD07D630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E5B53C-B06E-6977-D1B2-44DDDD07D630}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

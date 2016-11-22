@@ -31,16 +31,19 @@ public class EnemyScript : MonoBehaviour
     // When the enemy collides with another object
     void OnCollisionEnter(Collision col)
     {
-        //If the player hit an object with the bulltet tag
-        if (col.gameObject.tag == "Bullet")
-        {
-            health -= 10f;
-        }
-
         // If the enemy makes it to the end (hits end wall), it will destroy
         if (col.gameObject.name == "End of Pathway")
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        //If the player hit an object with the bulltet tag
+        if (col.gameObject.tag == "Bullet")
+        {
+            health -= 10f;
         }
     }
 
