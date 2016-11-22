@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstralDefence.CSharp.Plugins", "AstralDefence.CSharp.Plugins.csproj", "{C0C77DA2-03C9-4031-496F-D9601E0B2F0E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstralDefence.CSharp", "AstralDefence.CSharp.csproj", "{C3460365-9416-0E43-38FC-3031E0FE24EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstralDefence.CSharp.Editor", "AstralDefence.CSharp.Editor.csproj", "{1BB5CAAC-29A4-EF0B-2568-AEE401B6256A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0C77DA2-03C9-4031-496F-D9601E0B2F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C77DA2-03C9-4031-496F-D9601E0B2F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C77DA2-03C9-4031-496F-D9601E0B2F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C77DA2-03C9-4031-496F-D9601E0B2F0E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C3460365-9416-0E43-38FC-3031E0FE24EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3460365-9416-0E43-38FC-3031E0FE24EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3460365-9416-0E43-38FC-3031E0FE24EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3460365-9416-0E43-38FC-3031E0FE24EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB5CAAC-29A4-EF0B-2568-AEE401B6256A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB5CAAC-29A4-EF0B-2568-AEE401B6256A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB5CAAC-29A4-EF0B-2568-AEE401B6256A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB5CAAC-29A4-EF0B-2568-AEE401B6256A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

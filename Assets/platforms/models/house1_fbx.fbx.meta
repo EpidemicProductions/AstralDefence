@@ -3,8 +3,19 @@ guid: d19acfada0c51a04783a3590d78d6a01
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: house1_windows
+    400000: //RootNode
+    400002: house1_windows
+    2300000: //RootNode
+    2300002: house1_windows
+    3300000: //RootNode
+    3300002: house1_windows
     4300000: house1
     4300002: house1_windows
+    6400000: //RootNode
+    6400002: house1_windows
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

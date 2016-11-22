@@ -27,6 +27,9 @@ public class EnemyScript : MonoBehaviour
     public float spawnTime = 3f;            // How long between each spawn.
     public Transform[] spawnPoints;
 
+    //Enemy Spawn Stop
+    public float EnemyAmount;
+
 
     // When the enemy collides with another object
     void OnCollisionEnter(Collision col)
@@ -57,6 +60,9 @@ public class EnemyScript : MonoBehaviour
 
         //Movement
         pathEnd = GameObject.FindWithTag("PathEnd");
+
+        //Enemy Start
+        Spawn();
     }
 
     // Update is called once per frame
@@ -64,7 +70,7 @@ public class EnemyScript : MonoBehaviour
     {
         EnemyMove();
         EnemyLife();
-        Spawn();
+        EnemySpawnStop();        
     }
 
     // Moves the object to the object that is set as the vairable of 'pathEnd'
@@ -98,5 +104,14 @@ public class EnemyScript : MonoBehaviour
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+    }
+
+    void EnemySpawnStop()
+    {
+        float EnemyAmount = (GameObject.FindGameObjectsWithTag("Enemy").Length);
+        if (EnemyAmount >= 10)
+        {
+            Destroy(GameObject.FindWithTag("Spawn"));
+        }
     }
 }
