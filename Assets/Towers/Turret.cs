@@ -4,6 +4,7 @@ using System.Collections;
 public class Turret : MonoBehaviour
 {
     private Transform target;
+    private EnemyHealth targetEnemy;
     public float range = 20f;
 
     public string enemyTag = "Enemy";
@@ -21,9 +22,9 @@ public class Turret : MonoBehaviour
     public LineRenderer lineRenderer;
     public bool active = false;
 
-    public ParticleSystem sparks;
+    public int damageOverTime = 0;
 
-    Vector3 direction;
+    public float slowPercent = 0.5f;
 
 	void Start ()
     {
@@ -58,6 +59,7 @@ public class Turret : MonoBehaviour
         {
             //Then target that enemy
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();
         }
         else
         {
@@ -69,8 +71,7 @@ public class Turret : MonoBehaviour
 	
 	void Update ()
     {
-        direction = target.position - transform.position;
-        if (!active)
+        if(!active)
         {
             return;
         }
@@ -106,7 +107,7 @@ public class Turret : MonoBehaviour
     void LockOnTarget ()
     {
         //Get a vector that points in the direction of the enemy
-        
+        Vector3 direction = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         //Smoothly rotate to new enemy
         Vector3 rotation = Quaternion.Lerp(Rotator.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
@@ -115,6 +116,9 @@ public class Turret : MonoBehaviour
 
     void Laser ()
     {
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.Slow(slowPercent);
+
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
         
@@ -129,13 +133,11 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
             bullet.Find(target);
-        Instantiate(sparks, firePoint.position, Quaternion.LookRotation(direction));
-        sparks.Play();
     }
 
     void OnDrawGizmosSelected ()
     {
-        //Range is noe colored red
+        //Range is now colored red
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }

@@ -3,13 +3,18 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour {
 
-    public int health = 100;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-    public void TakeDamage (int amount)
+    public float health = 100;
+
+    public float startSpeed = 10f;
+    public float speed;
+
+
+    void Strat ()
+    {
+        speed = startSpeed;
+    }
+
+    public void TakeDamage (float amount)
     {
         health -= amount;
         if (health <= 0)
@@ -18,12 +23,15 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 
+    public void Slow (float percent)
+    {
+        speed = startSpeed * (1f - percent);
+    }
+
     void Death()
     {
         Destroy(gameObject);
     }
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+  
 }

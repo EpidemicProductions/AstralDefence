@@ -2,19 +2,23 @@
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject explosion;
-
+    private AudioSource audioSource;
     private Transform target;
 
     public float speed = 70f;
 
     public int damage = 25;
-
+    public float aoeRadius = 0f;
     public void Find (Transform _target)
     {
         target = _target;
     }
 	
+    void Start ()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+    }
 	// Update is called once per frame
 	void Update ()
     {
@@ -37,6 +41,7 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+        
         //rotate the missile
        // transform.LookAt(target);
 	}
@@ -45,10 +50,45 @@ public class Bullet : MonoBehaviour
     {
         // THIS DESTROYS THE ENEMY INSTANTLY
         //Destroy(target.gameObject);
+
+        if (aoeRadius > 0f)
+        {
+            Explode(); 
+        }
+        else
+        {
+            Damage(target);
+        }
         //This destroys the bullet once it connects with enemy
         Destroy(gameObject);
-        Instantiate(explosion, transform.position, Quaternion.Euler(0, 0, 0));
-        explosion.GetComponent<ParticleSystem>().Play();
-           
+    }
+
+    void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, aoeRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (GetComponent<Collider>().tag == "Enemy")
+            {
+                Damage(GetComponent<Collider>().transform);
+            }
+        }
+    }
+
+    void Damage (Transform enemy)
+    {
+        EnemyHealth e = enemy.GetComponent<EnemyHealth>();
+
+        if (e != null)
+        {
+            e.TakeDamage(damage);
+        }
+        //Destroy(enemy.gameObject);
+    }
+
+    void OnDrawGizmoSelected ()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, aoeRadius);
     }
 }
