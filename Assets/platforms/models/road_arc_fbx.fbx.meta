@@ -3,8 +3,19 @@ guid: b79637da5ac622a44b02dab2f15a494e
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: road_arc
+    100002: road_arc_cl
+    100004: //RootNode
+    400000: road_arc
+    400002: road_arc_cl
+    400004: //RootNode
+    2300000: road_arc
+    2300002: road_arc_cl
+    3300000: road_arc
+    3300002: road_arc_cl
     4300000: road_arc
     4300002: road_arc_cl
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

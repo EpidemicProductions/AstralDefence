@@ -3,8 +3,19 @@ guid: b50a24774569dc74fb7c66142dfa72b3
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: bridge_down
+    100002: bridge_down_cl
+    100004: //RootNode
+    400000: bridge_down
+    400002: bridge_down_cl
+    400004: //RootNode
+    2300000: bridge_down
+    2300002: bridge_down_cl
+    3300000: bridge_down
+    3300002: bridge_down_cl
     4300000: bridge_down_cl
     4300002: bridge_down
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

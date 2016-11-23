@@ -3,7 +3,12 @@ guid: 75ffe1b8272470441a145067ac3b220b
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: road_paint
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
