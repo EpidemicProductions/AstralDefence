@@ -14,7 +14,7 @@ public class Technician : MonoBehaviour
     Vector3 targetPosition;
 
     public float speed;
-    public RaycastHit storeHit;
+    
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class Technician : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                storeHit = hit;
+                
                 if (hit.collider.GetComponent<Technician>() ||
                     hit.collider.CompareTag("Prop"))
                 {
@@ -66,25 +66,16 @@ public class Technician : MonoBehaviour
                 {
                     turretIdentifier.transform.position = identifierHideLocation;
                 }
-                
+                ConnectTower(hit);   
             }
         }
         technician.transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         transform.LookAt(targetPosition);
     }
 
-    void OnTriggerEnter(Collider other)
+    public void ConnectTower(RaycastHit hit)
     {
-        Debug.Log(other.name);
-        if (other.gameObject.GetComponent<Turret>())
-        {
-            other.GetComponent<Turret>().active = true;
-        }
-    }   
-
-    public void ConnectTower()
-    {
-        storeHit.collider.GetComponent<Turret>().active = true;
+        hit.collider.GetComponent<Turret>().active = true;
         Debug.Log("im running");
     }
 

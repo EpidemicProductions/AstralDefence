@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
 
     public int damage = 25;
     public float aoeRadius = 0f;
+
+
     public void Find (Transform _target)
     {
         target = _target;
@@ -48,6 +50,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget ()
     {
+
         // THIS DESTROYS THE ENEMY INSTANTLY
         //Destroy(target.gameObject);
 
