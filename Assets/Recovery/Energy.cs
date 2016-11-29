@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Energy : MonoBehaviour {
+    public int startingEnergy;
     public Text resources;
     public int energyVal;
     public string energyDisp;
@@ -12,11 +13,12 @@ public class Energy : MonoBehaviour {
     public GameObject towerPosition;
     private float distance;
 
+    public int connectionCost;
     public Text connectCost;
 
 	// Use this for initialization
 	void Start () {
-        
+        energyVal = startingEnergy;
 	}
 	
 	// Update is called once per frame
@@ -45,7 +47,7 @@ public class Energy : MonoBehaviour {
     void DetermineTurretCost()
     {
         distance = Vector3.Distance(stationPosition.transform.position, towerPosition.transform.position);
-        float newDistance = distance * 10;
-        connectCost.text = newDistance.ToString("N0");
+        connectionCost = (int)distance  * 10;
+        connectCost.text = connectionCost.ToString("N0");
     }
 }
