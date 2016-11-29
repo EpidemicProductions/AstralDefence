@@ -2,16 +2,21 @@
 using System.Collections;
 
 public class CoinDrop : MonoBehaviour {
+    public float speed;
+    
 
 	// Use this for initialization
-	void Start () {
-	
-	}
+	void Start ()
+    {
+        speed = 10f;
+        DestroyAttached();
+        
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        DestroyAttached();
+        transform.position = Vector3.MoveTowards(transform.position, gameObject.GetComponent<Technician>().transform.position, speed * Time.deltaTime);
     }
 
     void DestroyAttached()
