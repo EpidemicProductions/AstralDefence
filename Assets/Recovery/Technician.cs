@@ -22,7 +22,8 @@ public class Technician : MonoBehaviour
     public Vector3 inputBlockerHideLocation;
 
     private GameObject hitTower;
-    
+
+    public GameObject techMarker;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class Technician : MonoBehaviour
     }
     void Update()
     {
-
+        techMarker.transform.position = transform.position;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -96,6 +97,7 @@ public class Technician : MonoBehaviour
         technician.transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         transform.LookAt(targetPosition);
     }
+    
 
     public void ConnectTower()
     {
