@@ -36,6 +36,8 @@ public class Technician : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log("techVariablePosition " + technician.transform.position);
+        Debug.Log("this " + transform.position);
         techMarker.transform.position = transform.position;
         if (Input.GetMouseButtonDown(0))
         {
