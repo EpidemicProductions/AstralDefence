@@ -91,7 +91,7 @@ public class Technician : MonoBehaviour
 
                         inputBlocker.transform.position = buttonLocation;
                         connectDisplay.SetActive(true);
-                        turretIdentifier.transform.position = hit.collider.transform.position;
+                        turretIdentifier.transform.position = hit.collider.transform.position + Vector3.up * 0.45f;
                         soundController.GetComponent<SoundController>().selectTowerPlay();
                         
                     }
