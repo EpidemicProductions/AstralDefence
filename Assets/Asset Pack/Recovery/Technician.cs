@@ -56,7 +56,6 @@ public class Technician : MonoBehaviour
 
                 if (hit.collider != inputBlocker.GetComponent<Collider>())
                 {
-                    Debug.Log("hit");
                     inputBlocker.transform.position = inputBlockerHideLocation;
 
 
@@ -114,13 +113,11 @@ public class Technician : MonoBehaviour
 
     public void ConnectTower()
     {
-        Debug.Log("1st");
 
         if(GetComponent<Energy>().energyVal >= GetComponent<Energy>().connectionCost)
         {
             hitTower.GetComponent<Turret>().active = true;
             soundController.GetComponent<SoundController>().powerUpPlay();
-            Debug.Log("2nd");
             GetComponent<Energy>().energyVal -= GetComponent<Energy>().connectionCost;
         }
         else

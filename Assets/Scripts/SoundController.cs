@@ -32,7 +32,6 @@ public class SoundController : MonoBehaviour {
     public void tapPlay()
     {
         sound.PlayOneShot(tap, 0.7F);
-        Debug.Log("i played tap");
     }
 
     public void shootPlay()
@@ -77,7 +76,7 @@ public class SoundController : MonoBehaviour {
 
     public void healthDropPlay()
     {
-        sound.PlayOneShot(tap, 0.7F);
+        sound.PlayOneShot(healthDrop, 0.7F);
     }
 
     public void selectTowerPlay()

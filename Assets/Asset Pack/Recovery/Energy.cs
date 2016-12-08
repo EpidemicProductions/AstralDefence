@@ -5,6 +5,11 @@ using UnityEngine.UI;
 public class Energy : MonoBehaviour {
     public GameObject soundController;
 
+    public int heartsVal;
+    public Text heartsText;
+    public string heartsDisp;
+    public int startingHearts;
+
     public int startingEnergy;
     public Text resources;
     public int energyVal;
@@ -21,14 +26,16 @@ public class Energy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         energyVal = startingEnergy;
+        heartsVal = startingHearts;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         energyDisp = energyVal.ToString();
+        heartsDisp = heartsVal.ToString();
         resources.text = energyDisp;
+        heartsText.text = heartsDisp;
         DetermineTurretCost();
-        Debug.Log(distance);
 	}
 
     void OnTriggerEnter(Collider other)
