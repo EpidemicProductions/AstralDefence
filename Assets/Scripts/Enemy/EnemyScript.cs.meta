@@ -1,10 +1,17 @@
 fileFormatVersion: 2
 guid: 48e89fc2e5e0e54429ab9279ff445dab
-timeCreated: 1478716740
+timeCreated: 1481206455
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - agent: {instanceID: 0}
+  - pathEnd: {instanceID: 0}
+  - coinPrefab: {instanceID: 0}
+  - spawnPoint: {instanceID: 0}
+  - enemy: {instanceID: 0}
+  - soundController: {instanceID: 0}
+  - explosion: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

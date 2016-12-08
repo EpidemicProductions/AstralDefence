@@ -28,7 +28,9 @@ public class Turret : MonoBehaviour
 
     public float slowPercent = 0.5f;
 
-	void Start ()
+    public ParticleSystem sparks;
+
+    void Start ()
     {
         //UpdateTarget is called 2X a second
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -138,6 +140,9 @@ public class Turret : MonoBehaviour
             bullet.Find(target);
 
         soundController.GetComponent<SoundController>().shootPlay();
+        
+        Instantiate(sparks, firePoint.transform.position, firePoint.rotation);
+        sparks.Play();
     }
 
     void OnDrawGizmosSelected ()

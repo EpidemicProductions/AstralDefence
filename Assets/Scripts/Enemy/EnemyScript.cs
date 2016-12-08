@@ -32,6 +32,8 @@ public class EnemyScript : MonoBehaviour
     //Enemy Spawn Stop
     public float EnemyAmount;
 
+    public GameObject explosion;
+
 
     // When the enemy collides with another object
     void OnCollisionEnter(Collision col)
@@ -91,10 +93,13 @@ public class EnemyScript : MonoBehaviour
         //If health is 0
         if (health <= 0)
         {
+            
+
             ItemDrop();
             soundController.GetComponent<SoundController>().explosionPlay();
             Destroy(gameObject);
-            
+            Instantiate(explosion, transform.position, transform.rotation);
+            explosion.GetComponent<ParticleSystem>().Play();
         }
     }
 
