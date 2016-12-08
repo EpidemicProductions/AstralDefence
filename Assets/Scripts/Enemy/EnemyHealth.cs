@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class EnemyHealth : MonoBehaviour {
+    
 
     public float health = 100;
 
@@ -12,6 +13,7 @@ public class EnemyHealth : MonoBehaviour {
     void Strat ()
     {
         speed = startSpeed;
+        
     }
 
     public void TakeDamage (float amount)
@@ -31,6 +33,7 @@ public class EnemyHealth : MonoBehaviour {
     void Death()
     {
         Destroy(gameObject);
+        
     }
 
   

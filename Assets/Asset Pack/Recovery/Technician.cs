@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Technician : MonoBehaviour
 {
+    public GameObject soundController;
+
     public GameObject technician;
     public ParticleSystem tap;
 
@@ -33,6 +35,8 @@ public class Technician : MonoBehaviour
         connectDisplay.SetActive(false);
         targetPosition = transform.position;
         identifierHideLocation = new Vector3(0, 0, 0);
+
+        soundController.GetComponent<SoundController>().countDownPlay();
     }
     void Update()
     {
@@ -48,12 +52,12 @@ public class Technician : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                
-                
+
+
                 if (hit.collider != inputBlocker.GetComponent<Collider>())
                 {
                     Debug.Log("hit");
-                   inputBlocker.transform.position = inputBlockerHideLocation;
+                    inputBlocker.transform.position = inputBlockerHideLocation;
 
 
                     if (hit.collider.GetComponent<Technician>() ||
@@ -72,6 +76,8 @@ public class Technician : MonoBehaviour
 
                         Instantiate(tap, hit.point, Quaternion.Euler(90, 0, 0));
                         tap.Play();
+                        soundController.GetComponent<SoundController>().tapPlay();
+
                         if (connectDisplay.activeInHierarchy)
                         {
 
@@ -86,14 +92,19 @@ public class Technician : MonoBehaviour
                         inputBlocker.transform.position = buttonLocation;
                         connectDisplay.SetActive(true);
                         turretIdentifier.transform.position = hit.collider.transform.position;
+                        soundController.GetComponent<SoundController>().selectTowerPlay();
+                        
                     }
                     else
                     {
-                       turretIdentifier.transform.position = identifierHideLocation;
+                        turretIdentifier.transform.position = identifierHideLocation;
                     }
-                    
+
                 }
-                
+                else
+                {
+                    soundController.GetComponent<SoundController>().buttonPressPlay();
+                }
             }
         }
         technician.transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -108,8 +119,13 @@ public class Technician : MonoBehaviour
         if(GetComponent<Energy>().energyVal >= GetComponent<Energy>().connectionCost)
         {
             hitTower.GetComponent<Turret>().active = true;
+            soundController.GetComponent<SoundController>().powerUpPlay();
             Debug.Log("2nd");
             GetComponent<Energy>().energyVal -= GetComponent<Energy>().connectionCost;
+        }
+        else
+        {
+            soundController.GetComponent<SoundController>().errorPlay();
         }
         
     }

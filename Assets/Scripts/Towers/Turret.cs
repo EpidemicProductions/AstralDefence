@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Turret : MonoBehaviour
 {
+    public GameObject soundController;
+
     private Transform target;
     private EnemyHealth targetEnemy;
     public float range = 20f;
@@ -96,6 +98,7 @@ public class Turret : MonoBehaviour
             if (fireCountdown <= 0f)
             {
                 Shoot();
+                
                 fireCountdown = 1f / fireRate;
             }
 
@@ -133,6 +136,8 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
             bullet.Find(target);
+
+        soundController.GetComponent<SoundController>().shootPlay();
     }
 
     void OnDrawGizmosSelected ()

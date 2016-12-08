@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Energy : MonoBehaviour {
+    public GameObject soundController;
+
     public int startingEnergy;
     public Text resources;
     public int energyVal;
@@ -36,12 +38,14 @@ public class Energy : MonoBehaviour {
             PickupEnergy();
             Destroy(other.gameObject);
             Instantiate(pickUp, transform.position, Quaternion.Euler(0, 0, 0));
+            
         }
     }
 
     void PickupEnergy()
     {
         energyVal += 10;
+        soundController.GetComponent<SoundController>().pickupPlay();
     }
 
     void DetermineTurretCost()

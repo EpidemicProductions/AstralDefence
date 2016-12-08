@@ -27,6 +27,8 @@ public class EnemyScript : MonoBehaviour
     public float spawnTime = 3f;            // How long between each spawn.
     public Transform[] spawnPoints;
 
+    public GameObject soundController;
+
     //Enemy Spawn Stop
     public float EnemyAmount;
 
@@ -61,8 +63,12 @@ public class EnemyScript : MonoBehaviour
         //Movement
         pathEnd = GameObject.FindWithTag("PathEnd");
 
+        soundController = GameObject.FindWithTag("SoundController");
+
         //Enemy Start
         Spawn();
+
+        
     }
 
     // Update is called once per frame
@@ -86,7 +92,9 @@ public class EnemyScript : MonoBehaviour
         if (health <= 0)
         {
             ItemDrop();
-            Destroy(gameObject);            
+            soundController.GetComponent<SoundController>().explosionPlay();
+            Destroy(gameObject);
+            
         }
     }
 
