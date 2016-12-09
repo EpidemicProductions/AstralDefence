@@ -14,7 +14,7 @@ public class EnemySpawnWave : MonoBehaviour
     public float waveWait = 4;
     public Transform[] spawnPoints;
 
-    public float wave = 1;
+    public float waveCount = 1;
 
     void Start()
     {
@@ -37,8 +37,8 @@ public class EnemySpawnWave : MonoBehaviour
             }
             yield return new WaitForSeconds(waveWait);
             hazardCount += 5;
-            wave + 1;
-            print(wave);
+            waveCount += 1;
+            print(waveCount);
 
         }
     }
