@@ -34,13 +34,13 @@ public class MenuController : MonoBehaviour {
     //Loads Level 2.
     public void Level2()
     {
-
+        Application.LoadLevel("Level2");
     }
 
     //Loads Level 3.
     public void Level3()
     {
-
+        Application.LoadLevel("Level3");
     }
 
     //Quits to Desktop

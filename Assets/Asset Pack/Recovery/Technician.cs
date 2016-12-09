@@ -35,13 +35,12 @@ public class Technician : MonoBehaviour
         connectDisplay.SetActive(false);
         targetPosition = transform.position;
         identifierHideLocation = new Vector3(0, 0, 0);
-
         soundController.GetComponent<SoundController>().countDownPlay();
     }
     void Update()
     {
        // Debug.Log("techVariablePosition " + technician.transform.position);
-        //Debug.Log("this " + transform.position);
+        
         techMarker.transform.position = transform.position;
         if (Input.GetMouseButtonDown(0))
         {

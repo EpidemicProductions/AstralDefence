@@ -11,8 +11,8 @@ public class EnemyScript : MonoBehaviour
     private GameObject pathEnd;
 
     //Health
-    [SerializeField]
-    private float health = 100f;
+    
+    public float health = 100f;
 
     //Pickup
     [SerializeField]
@@ -33,6 +33,8 @@ public class EnemyScript : MonoBehaviour
     public float EnemyAmount;
 
     public GameObject explosion;
+
+    public GameObject eventM;
 
 
     // When the enemy collides with another object
@@ -66,12 +68,16 @@ public class EnemyScript : MonoBehaviour
         pathEnd = GameObject.FindWithTag("PathEnd");
 
         soundController = GameObject.FindWithTag("SoundController");
-
+        eventM = GameObject.FindWithTag("EventManager");
+        UpdateEnemies();
         //Enemy Start
         Spawn();
 
-
         
+
+
+
+
     }
 
     // Update is called once per frame
@@ -79,7 +85,10 @@ public class EnemyScript : MonoBehaviour
     {
         EnemyMove();
         EnemyLife();
-        EnemySpawnStop();        
+        EnemySpawnStop();
+        Debug.Log(health);
+
+        
     }
 
     // Moves the object to the object that is set as the vairable of 'pathEnd'
@@ -126,6 +135,19 @@ public class EnemyScript : MonoBehaviour
         if (EnemyAmount >= 10)
         {
             Destroy(GameObject.FindWithTag("Spawn"));
+        }
+    }
+
+    void UpdateEnemies()
+    {
+        Debug.Log("i ran but did nothing");
+        if (eventM.GetComponent<EnemySpawnWave>().eventCounter == 2)
+        {
+            health += 100;
+        }
+        if (eventM.GetComponent<EnemySpawnWave>().eventCounter == 3)
+        {
+            health += 200;
         }
     }
 }

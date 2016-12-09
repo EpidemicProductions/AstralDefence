@@ -6,6 +6,12 @@ using System.Collections.Generic;
 [System.Serializable]
 public class EnemySpawnWave : MonoBehaviour
 {
+    public GameObject winLoseObject;
+
+    public int eventCounter;
+
+    public GameObject soundController;
+
     public GameObject Enemy = null;
 
     public int hazardCount = 3;
@@ -21,11 +27,18 @@ public class EnemySpawnWave : MonoBehaviour
     {
         StartCoroutine(SpawnWaves());
         WaveText.text = "";
+        eventCounter = 1;
+        
     }
 
     void Update()
     {
         WaveText.text = ""+ waveCount;
+
+        if (eventCounter == 4)
+        {
+            winLoseObject.GetComponent<WinLose>().win = true;
+        }
     }
     IEnumerator SpawnWaves()
     {
@@ -46,7 +59,12 @@ public class EnemySpawnWave : MonoBehaviour
             hazardCount += 5;
             waveCount += 1;
             print(waveCount);
-
+            eventCounter += 1;
+            if(eventCounter != 4)
+            {
+                soundController.GetComponent<SoundController>().countDownPlay();
+            }
+            Debug.Log(eventCounter);
         }
     }
 }

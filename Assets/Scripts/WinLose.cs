@@ -18,10 +18,13 @@ public class WinLose : MonoBehaviour {
     public GameObject restart;
     public GameObject nextLevel;
 
+    public bool win;
+
     // Use this for initialization
     void Start ()
     {
         InvokeRepeating("CountEnemies", 5f, 1f);
+        win = false;
     }
 	
 	// Update is called once per frame
@@ -34,7 +37,7 @@ public class WinLose : MonoBehaviour {
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         count = gos.Length;
 
-        if(gos.Length == 0)
+        if(win)
         {
             Time.timeScale = 0;
             winOrLose.SetActive(true);
