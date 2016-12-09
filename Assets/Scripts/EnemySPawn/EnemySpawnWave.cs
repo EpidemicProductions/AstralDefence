@@ -25,10 +25,14 @@ public class EnemySpawnWave : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
+
         StartCoroutine(SpawnWaves());
         WaveText.text = "";
         eventCounter = 1;
-        
+        winLoseObject = GameObject.FindWithTag("StateController");
+        soundController = GameObject.FindWithTag("SoundController");
+        Debug.Log("im running - start() in enemy spawn wave");
     }
 
     void Update()
@@ -42,14 +46,17 @@ public class EnemySpawnWave : MonoBehaviour
     }
     IEnumerator SpawnWaves()
     {
+        Debug.Log("im running - spawn waves");
         yield return new WaitForSeconds(startWait);
         while (true)
         {
+            Debug.Log("im true");
             // Only pick a new spawn point once per wave
             int spawnPointIndex = Random.Range(0, spawnPoints.Length);
 
             for (int i = 0; i < hazardCount; i++)
             {
+                Debug.Log("im running - but im not doing anything - im fucking lazy");
                 // here would pick a new spawn point for each new enemy
                 Instantiate(Enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 

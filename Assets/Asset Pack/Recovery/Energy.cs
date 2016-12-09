@@ -38,20 +38,22 @@ public class Energy : MonoBehaviour {
         DetermineTurretCost();
 	}
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "PickUp")
         {
+            Debug.Log("pickup");
             PickupEnergy();
+            
             Destroy(other.gameObject);
-            Instantiate(pickUp, transform.position, Quaternion.Euler(0, 0, 0));
+            //Instantiate(pickUp, transform.position, Quaternion.Euler(0, 0, 0));
             
         }
     }
 
     void PickupEnergy()
     {
-        energyVal += 10;
+        energyVal += 30;
         soundController.GetComponent<SoundController>().pickupPlay();
     }
 

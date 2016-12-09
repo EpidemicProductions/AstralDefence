@@ -143,11 +143,11 @@ public class EnemyScript : MonoBehaviour
         Debug.Log("i ran but did nothing");
         if (eventM.GetComponent<EnemySpawnWave>().eventCounter == 2)
         {
-            health += 100;
+            health += 70;
         }
         if (eventM.GetComponent<EnemySpawnWave>().eventCounter == 3)
         {
-            health += 200;
+            health += 170;
         }
     }
 }
