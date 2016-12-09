@@ -14,11 +14,18 @@ public class EnemySpawnWave : MonoBehaviour
     public float waveWait = 4;
     public Transform[] spawnPoints;
 
-    public float waveCount = 1;
+    public int waveCount = 1;
+    public Text WaveText;
 
     void Start()
     {
         StartCoroutine(SpawnWaves());
+        WaveText.text = "";
+    }
+
+    void Update()
+    {
+        WaveText.text = ""+ waveCount;
     }
     IEnumerator SpawnWaves()
     {
